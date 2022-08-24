@@ -1,18 +1,27 @@
 import React from 'react';
+import '../styles/About.css';
 
+const styles = {
+    aboutStyle: {
+      background: 'orange',
+      fontsize: '96px'
+    },
+  };
 
 function About() {
+
+    
     return (
-        <section className='my-5'>
+        <section style={styles.aboutStyle} className="about">
             <div className='my-2'>
                 <div className='profile-img my-5'>
-                    <i className='fas fa-user-circle' style={{fontsize: "96px"}}></i>
+                    <i className='fas fa-user-circle'></i>
                 </div>
-                <p className='my-2'>
+                <h1 style={styles.aboutStyle}>
                 About Me:
-                </p>
+                </h1>
                 <p>
-
+                    sample text
                 </p>
             </div>
         </section>

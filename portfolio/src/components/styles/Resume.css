@@ -1,0 +1,12 @@
+.resume {
+    background: #b71775;
+    height: 200px;
+  }
+  
+  .resume h1 {
+    margin: 0;
+    padding-top: 75px;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+  }

@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-
-
 import { checkPassword, validateEmail } from '../../utils/helpers';
+import '../styles/Contact.css';
+
+const styles = {
+    contactStyle: {
+      background: 'black',
+    },
+  };
 
 
 function Contact() {
@@ -49,7 +54,8 @@ function Contact() {
 
 
     return (
-        <div>
+        <div style={styles.contactStyle} className='contact'>
+            <h1 style={styles.contactStyle}> Contact Me </h1>
             <p>Hello {userName}</p>
             <form className="form">
                 <input

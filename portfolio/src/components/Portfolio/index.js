@@ -6,36 +6,36 @@ function Portfolio() {
 //instructor provided
 
     const [projects] = useState([
-        {
-            name:
-            description:
-            link:
-            repo:
-        },
-        {
-            name:
-            description:
-            link:
-            repo:
-        },
-        {
-            name:
-            description:
-            link:
-            repo:
-        },
-        {
-            name:
-            description:
-            link:
-            repo:
-        },
-        {
-            name:
-            description:
-            link:
-            repo:
-        },
+        // {
+        //     name: P
+        //     description:
+        //     link:
+        //     repo:
+        // },
+        // {
+        //     name:
+        //     description:
+        //     link:
+        //     repo:
+        // },
+        // {
+        //     name:
+        //     description:
+        //     link:
+        //     repo:
+        // },
+        // {
+        //     name:
+        //     description:
+        //     link:
+        //     repo:
+        // },
+        // {
+        //     name:
+        //     description:
+        //     link:
+        //     repo:
+        // },
     ]);
 
     return (
