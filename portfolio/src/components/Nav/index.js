@@ -1,54 +1,69 @@
-import React, {useState} from 'react';
-import '../styles/Header.css';
-import {capitalizeFirstLetter} from '../../utils/helpers'
-
+//import React, { useState } from 'react';
+import React from 'react';
+import '../styles/Nav.css'
+import { capitalizeFirstLetter } from '../../utils/helpers'
 
 const styles = {
   navbarStyle: {
-    background: 'green',
+    backgroundImage: 'linear-gradient(180deg, rgb(220, 138, 245), rgb(122, 235, 229))',
     justifyContent: 'flex-end',
   },
+  navbarButton: {
+    color: '',
+    background: 'transparent',
+    borderRadius: '5px',
+    justifyContent: 'flex-end',
+    padding: '20px',
+    marginRight: '60px',
+    marginBottom: '27px',
+    transition: 'transform .2s',
+  }
 };
 
+function Nav(props) {
 
-function Nav() {
-  const [currentPage, setCurrentPage] = useState('');
-
-  // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
-  const renderPage = () => {
-    // if (currentPage === 'About') {
-    //   return <Home />;
-    // }
-    // if (currentPage === 'About') {
-    //   return <About />;
-    // }
-    // if (currentPage === 'Blog') {
-    //   return <Blog />;
-    // }
-    // return <Contact />;
-  };
-
-
-    // const {
-    //     pages = [],
-    //     setCurrentPage,
-    //     CurrentPage,
-    // } = props;
-
-    return (
-        <nav style={styles.navbarStyle} className="navbar">
-          <a style={styles.navbarStyle} href="/">Welcome</a>
-        {/* {props.pages.map(item => (
-          <li className="nav-bar-item" key={item.name}>
-             <input
-         onClick={setCurrentPage}
-        />
-          </li>
-        )
-        )} */}
-      </nav>
-    );
-
+  return (
+    <div style={styles.navbarStyle} className="navbar">
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <a
+            href="#about" style={styles.navbarButton}
+            onClick={() => props.setPage('About')}
+            className={props.page === 'About' ? 'nav-link active' : 'nav-link'}
+          >
+            About
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            href="#portfolio" style={styles.navbarButton}
+            onClick={() => props.setPage('Portfolio')}
+            className={props.page === 'Portfolio' ? 'nav-link active' : 'nav-link'}
+          >
+            Portfolio
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            href="#contact" style={styles.navbarButton}
+            onClick={() => props.setPage('Contact')}
+            className={props.page === 'Contact' ? 'nav-link active' : 'nav-link'}
+          >
+            Contact
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            href="#resume" style={styles.navbarButton}
+            onClick={() => props.setPage('Resume')}
+            className={props.page === 'Resume' ? 'nav-link active' : 'nav-link'}
+          >
+            Resume
+          </a>
+        </li>
+      </ul >
+    </div >
+  );
 }
 
 export default Nav;
@@ -56,7 +71,7 @@ export default Nav;
 
 
 
- 
+
 
 
 

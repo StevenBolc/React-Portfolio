@@ -2,20 +2,20 @@ import React from 'react';
 import '../styles/Header.css';
 
 const styles = {
-  headerStyle: {
-    background: 'purple',
+  headerStyle: { 
+    backgroundImage: 'linear-gradient(360deg, rgb(220, 138, 245), rgb(60, 9, 128))',
   },
   headingStyle: {
-    fontSize: '50px',
+    fontSize: '35px',
+    textAlign: 'left',
+    padding: '5vw'
   },
 };
-
-// We use JSX curly braces to evaluate the style object
 
 function Header() {
   return (
     <header style={styles.headerStyle} className="header">
-      <h1 style={styles.headingStyle}>Welcome</h1>
+      <h1 style={styles.headingStyle}>Steven Bolcar</h1> 
     </header>
   );
 }

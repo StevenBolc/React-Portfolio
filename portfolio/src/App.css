@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Kdam+Thmor+Pro&family=Noto+Sans+KR:wght@300&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .App-logo {

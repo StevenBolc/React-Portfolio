@@ -9,7 +9,7 @@ function Project ({ project }) {
     return (
         <div className='project' key={name}>
             <img
-            src={require(`../../assets/projects/${name}.jpg`).default}
+            src={require(`../../assets/projects/${name}.png`).default}
             alt={removeHyphensAndCapitalize(name)}
             className="project-bg"
             />
@@ -17,7 +17,6 @@ function Project ({ project }) {
                 <h3>
                     <a href={link}>{removeHyphensAndCapitalize(name)}</a>{' '}
                     <a href={repo}>
-                        <i className='fab fa-github'></i>
                     </a>
                 </h3>
                 <p>{description}</p>

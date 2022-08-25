@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { checkPassword, validateEmail } from '../../utils/helpers';
 import '../styles/Contact.css';
 
+
 const styles = {
     contactStyle: {
-      background: 'black',
+        background: 'rgb(122, 235, 229)',
     },
-  };
+};
 
 
-function Contact() {
+function Contact({ contact }) {
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    const [formState, setFormState] = useState ({
+    const [formState, setFormState] = useState({
     });
 
     const handleChange = (e) => {
@@ -22,7 +23,7 @@ function Contact() {
         const inputType = target.name;
         const inputValue = target.value;
 
-        
+
         if (inputType === 'email') {
             setEmail(inputValue);
         } else if (inputType === 'userName') {
@@ -59,21 +60,21 @@ function Contact() {
             <p>Hello {userName}</p>
             <form className="form">
                 <input
-                    value={email}
+                    email={email}
                     name="email"
                     onChange={handleChange}
                     type="email"
                     placeholder="email"
                 />
                 <input
-                    value={userName}
+                    username={userName}
                     name="userName"
                     onChange={handleChange}
                     type="text"
                     placeholder="username"
                 />
                 <input
-                    value={password}
+                    password={password}
                     name="password"
                     onChange={handleChange}
                     type="password"
@@ -81,14 +82,18 @@ function Contact() {
                 />
                 <button type="button" onClick={handleSubmit}>Submit</button>
             </form>
+            <nav>
+            </nav>
             {formState && (
                 <div>
                     <p className="error-text">{formState}</p>
                 </div>
+
             )}
         </div>
     );
+};
 
-}
+
 
 export default Contact;

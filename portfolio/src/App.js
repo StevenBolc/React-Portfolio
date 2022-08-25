@@ -1,28 +1,32 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Page from "./components/Page"
 import Footer from "./components/Footer";
-import About from './components/About';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Page from "./components/Page"
+// import About from './components/About';
+// import Portfolio from './components/Portfolio';
+// import Contact from './components/Contact';
+// import Resume from './components/Resume';
+
+
 
 function App() {
-  const [pages] = useState([
-    { name: 'About'},
-    { name: 'Contact'},
-    { name: 'Footer'},
-    { name: 'Header'},
-    { name: 'Nav'},
-  ]);
+  const [page, setPage] = useState('About');
+ 
+
   return (
     <div className="App">
-      <Header/>;
-      <Nav/>;
-      <Page/>;
-      <Footer/>;
-      <About/>;   
+      <Header/>
+        <Nav page={page} setPage={setPage}/>
+        <main>
+          <Page currentPage={page}/>
+        </main>
+        <Footer/>
     </div>
+    
   );
 }
 
