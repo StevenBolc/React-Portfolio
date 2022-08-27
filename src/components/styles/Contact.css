@@ -10,4 +10,13 @@
     color: white;
     font-size: 3rem;
   }
+
+  .contact button:hover {
+    color: purple;
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin: 5px;
+    line-height: 2;
+    transform: scale(1.5);
+  }
   

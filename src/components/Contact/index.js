@@ -1,126 +1,138 @@
-// import axios from 'axios';
 import React, { useState } from 'react';
-import { checkMessage, validateEmail } from '../../utils/helpers';
+import { validateEmail } from '../../utils/helpers';
 import '../styles/Contact.css';
 
 
 
-const styles = {
-    contactStyle: {
-        background: 'rgb(122, 235, 229)',
-    },
-};
+function Contact() {
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
+    const [subject, setSubject] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const handleChange = (e) => {
+        const { target } = e;
+        const inputType = target.name;
+        const inputValue = target.value;
 
 
-function Contact({ contact }) {
+        if (inputType === 'email') {
+            setEmail(inputValue);
+            return;
+        } else if (inputType === 'name') {
+            setName(inputValue);
+            return;
+        } else if (inputType === 'message') {
+            setMessage(inputValue);
+            return;
+        } else if (inputType === 'subject') {
+            setSubject(inputValue);
+            return;
+        }
+    };
 
-    // const [name, setName] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [subject, setSubject] = useState('');
-    // const [message, setMessage] = useState('');
-
-    // const [formState, setFormState] = useState({
-    // });
-
-    // const handleChange = (e) => {
-    //     const { target } = e;
-    //     const inputType = target.name;
-    //     const inputValue = target.value;
 
 
-    //     if (inputType === 'email') {
-    //         setEmail(inputValue);
-    //     } else if (inputType === 'subject') {
-    //         setSubject(inputValue);
-    //     } else {
-    //         setMessage(inputValue);
-    //     }
-    // };
+    const handleBlur = (e) => {
+        const { target } = e;
+        const inputType = target.name;
+        const inputValue = target.value;
 
-    const [status, setStatus] = useState("Submit");
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus("Sending...");
-        const { name, email, message } = e.target.elements;
-        let details = {
-            name: name.value,
-            email: email.value,
-            message: message.value,
-        };
-        let response = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(details),
-        });
-        setStatus("Submit");
-        let result = await response.json();
-        alert(result.status);
-
+        if ((inputType === 'name') && (!inputValue.length)) {
+            setErrorMessage('Please enter your name')
+        }
+        if (!validateEmail(email)) {
+            setErrorMessage('The Email you entered is invalid')
+        }
+        if ((inputType === 'subject') && (!inputValue.length)) {
+            setErrorMessage('Please include a subject')
+        }
+        if ((inputType === 'message') && (!inputValue.length)) {
+            setErrorMessage('Please include a message')
+        }
     }
-    // const handleSubmit = (e) => {
 
-    //     e.preventDefault();
-    //     axios({
-    //         method: "POST",
-    //         url: "/send",
-    //         data: this.useState
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        setName('');
+        setEmail('');
+        setMessage('');
+        setErrorMessage('');
+    }
 
-    //     }).then((response) => {
 
-    //         if (!validateEmail(email) || !subject) {
-    //             setFormState('Email or subject is invalid');
-    //             return;
-    //         }
-    //         if (!checkMessage(message)) {
-    //             setFormState(
-    //                 `Choose a more secure Message for the account: ${subject}`
-    //             );
-    //             return;
-    //         }
-    //         alert(`Hello ${subject}`);
-    //         setSubject('');
-    //         setMessage('');
-    //         setEmail('');
-    //     })
+    const styles = {
+        contactStyle: {
+            background: 'rgb(122, 235, 229)',
+            height: '100vh'
+        },
+        contactBorder: {
+            background: 'gray',
+            height: '100vh',
+            border: '1rem solid',
+        },
+        contactForm: {
+            // backgroundColor: 'gray',
+            padding: '30px',
 
-    // };
 
+        },
+        contactButton: {
+            color: 'rgb(122, 235, 229)',
+            background: 'transparent',
+            backgroundColor: 'darkGrey',
+            borderRadius: '5px',
+            justifyContent: 'flex-end',
+            padding: '14px',
+            marginBottom: '100px',
+            transition: 'transform .2s',
+        }, 
+        contactError:{
+            padding: '20px',
+        }
+    };
 
     return (
-        <div className="section">
+        <div className="section" style={styles.contactStyle}>
             <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title">
-                            <h2 className="title">Contact</h2>
-                            <p>test</p><hr />
-                            <form id="contact-form" onSubmit={handleSubmit}
-                                method="POST">
-                                <div className="form-group">
-                                    <div className="row">
+                <div className="row" style={styles.contactBorder}>
+                    <div className="col-md-12" >
+                        <div className="section-title" >
+                            <h2 className="title" >Contact</h2>
+                            <hr />
+                            <form id="contact-form"
+                            >
+                                <div className="form-group" >
+                                    <div className="row" >
                                         <div className="col-md-6">
-                                            <input placeholder="Name" id="name" type="text"
-                                                className="form-control" />
+                                            <input value={name} placeholder="Name" name="name" type="text"
+                                                className="form-control" onChange={handleChange} onBlur={handleBlur}
+                                            />
                                         </div>
                                         <div className="col-md-6">
-                                            <input placeholder="Email" id="email" type="email"
-                                                className="form-control" aria-describedby="emailHelp"
+                                            <input value={email} placeholder="Email" name="email" type="email"
+                                                className="form-control" onChange={handleChange} onBlur={handleBlur}
                                             />
+                                        </div>
+                                        <div className="form-group">
+                                            <input value={subject} placeholder="Subject" name="subject" type="text"
+                                                className="form-control" onChange={handleChange} onBlur={handleBlur}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <input style={styles.contactForm} value={message} placeholder="message" name="message"
+                                                className="form-control" rows="1" onChange={handleChange} onBlur={handleBlur}
+                                            />
+                                        </div>
+                                        <div>
+                                        {errorMessage && (<div className="error-text" style={styles.contactError}>{errorMessage}</div>)}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="form-group">
-                                    <input placeholder="Subject" id="subject" type="text"
-                                        className="form-control" />
-                                </div>
-                                <div className="form-group">
-                                    <textarea placeholder="message" id="message"
-                                        className="form-control" rows="1"
-                                    />
-                                </div>
-                                <button type="submit" className="primary-btn submit">{status}</button>
+                                <button style={styles.contactButton} type="submit" className="primary-btn submit" onSubmit={handleSubmit}>Submit</button>
                             </form>
                         </div>
                     </div>
@@ -129,9 +141,14 @@ function Contact({ contact }) {
 
             </div>
         </div>
+    );
+};
 
 
-        // <div style={styles.contactStyle} className='contact'>
+
+export default Contact;
+
+       // <div style={styles.contactStyle} className='contact'>
         //     <h1 style={styles.contactStyle}> Contact Me </h1>
         //     <p>Hello {userName}</p>
         //     <form className="form">
@@ -167,9 +184,5 @@ function Contact({ contact }) {
 
         //     )}
         // </div>
-    );
-};
 
 
-
-export default Contact;

@@ -21,9 +21,8 @@ const renderPage = () => {
 
   return (
     <div>
-      <PageContent>
         {renderPage()}
-        </PageContent>
+        <PageContent/>
     </div>
   );
 }

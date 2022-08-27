@@ -1,19 +1,5 @@
 import React, { useState } from 'react';
 import Project from '../Project';
-// import { BrowserRouter } from "react-router-dom";
-// import About from '../About';
-// import Contact from '../Contact';
-// import Resume from '../Resume';
-// import Nav from '../Nav';
-
-const styles = {
-    portfolioStyle: {
-        background: 'rgb(122, 235, 229)',
-        fontsize: '96px',
-        height: '100vh'
-    },
-
-};
 
 function Portfolio() {
 
@@ -38,12 +24,12 @@ function Portfolio() {
         //     link: '',
         //     repo: ''
         // },
-        // {
-        //     name: 'horiseon',
-        //     description: 'refactoring old html css code',
-        //     link: '',
-        //     repo: 'https://stevenbolc.github.io/Horiseon-Challenge/'
-        // },
+        {
+            name: 'Horiseon',
+            description: 'refactoring old html css code',
+            link: '',
+            repo: 'https://stevenbolc.github.io/Horiseon-Challenge/'
+        },
         // {
         //     name: 'project-3',
         //     description: 'tbd',
@@ -54,7 +40,7 @@ function Portfolio() {
 
     return (
             <div>
-                <div style={styles.portfolioStyle} className='flex-row'>
+                <div className='flex-row'>
                     {projects.map((project, index) => (
                         <Project
                             project={project}

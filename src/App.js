@@ -6,7 +6,6 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Page from "./components/Page";
-import Contact from './components/Contact';
 // import About from './components/About';
 // import Portfolio from './components/Portfolio';
 // import Contact from './components/Contact';
