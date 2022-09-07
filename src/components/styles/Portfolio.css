@@ -1,9 +1,9 @@
-.contact {
+.portfolio {
     background: #b71775;
     height: 200px;
   }
   
-  .contact h1 {
+  .portfolio h1 {
     margin: 0;
     padding-top: 25px;
     padding-left: 30px;
@@ -11,8 +11,3 @@
     color: white;
     font-size: 3rem;
   }
-
-  .contact button:hover {
-    background: purple;
-  }
-  

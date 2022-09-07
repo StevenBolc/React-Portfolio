@@ -1,6 +1,6 @@
 import React from 'react';
 import { removeHyphensAndCapitalize } from '../../utils/helpers';
-
+// import images from './assets/images'
 // instructor provided
 
 function Project ({ project }) {

@@ -6,15 +6,13 @@ import { capitalizeFirstLetter } from '../../utils/helpers'
 const styles = {
   navbarStyle: {
     backgroundImage: 'linear-gradient(180deg, rgb(220, 138, 245), rgb(122, 235, 229))',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   navbarButton: {
-    color: '',
     background: 'transparent',
     borderRadius: '5px',
-    justifyContent: 'flex-end',
     padding: '20px',
-    marginRight: '60px',
+    margin: '60px',
     marginBottom: '27px',
     transition: 'transform .2s',
   }
@@ -24,9 +22,9 @@ function Nav(props) {
 
   return (
     <div style={styles.navbarStyle} className="navbar">
-      <ul className="nav nav-tabs">
+      <ul className="nav nav-pills">
         <li className="nav-item">
-          <a
+          <a 
             href="#about" style={styles.navbarButton}
             onClick={() => props.setPage('About')}
             className={props.page === 'About' ? 'nav-link active' : 'nav-link'}

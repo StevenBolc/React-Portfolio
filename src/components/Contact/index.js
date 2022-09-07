@@ -13,6 +13,7 @@ function Contact() {
     const [errorMessage, setErrorMessage] = useState('')
 
     const handleChange = (e) => {
+        e.preventDefault();
         const { target } = e;
         const inputType = target.name;
         const inputValue = target.value;
@@ -33,9 +34,9 @@ function Contact() {
         }
     };
 
-
-
     const handleBlur = (e) => {
+        e.preventDefault();
+
         const { target } = e;
         const inputType = target.name;
         const inputValue = target.value;
@@ -45,7 +46,9 @@ function Contact() {
         }
         if (!validateEmail(email)) {
             setErrorMessage('The Email you entered is invalid')
-        }
+        } else if ((!validateEmail(email)) && (!inputValue.length)){
+            alert('Your Email was not sent') // work in functioning alert window later
+        }    
         if ((inputType === 'subject') && (!inputValue.length)) {
             setErrorMessage('Please include a subject')
         }
@@ -56,7 +59,7 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         setName('');
         setEmail('');
         setMessage('');
@@ -73,26 +76,33 @@ function Contact() {
             background: 'gray',
             height: '100vh',
             border: '1rem solid',
+            borderRadius: '5px'
         },
         contactForm: {
             // backgroundColor: 'gray',
-            padding: '30px',
+            padding: '50px',
+            
 
 
+        },
+        contactError:{
+            padding: '10px',
+            color: 'darkred',
+            fontSize: '1.5em',
+            textShadow: '1px 1px 3px red',
+            background: 'lightRed',
+            backgroundColor: 'pink',
+            border: 'solid',
+            borderRadius: '5px'
         },
         contactButton: {
             color: 'rgb(122, 235, 229)',
             background: 'transparent',
             backgroundColor: 'darkGrey',
             borderRadius: '5px',
-            justifyContent: 'flex-end',
             padding: '14px',
-            marginBottom: '100px',
-            transition: 'transform .2s',
         }, 
-        contactError:{
-            padding: '20px',
-        }
+        
     };
 
     return (

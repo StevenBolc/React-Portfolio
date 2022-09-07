@@ -8,6 +8,12 @@ const styles = {
         fontsize: '96px',
         height: '100vh'
     },
+    resumeBorder: {
+        background: 'gray',
+        height: '100vh',
+        border: '1rem solid',
+        borderRadius: '5px'
+    },
 
 };
 
@@ -15,23 +21,20 @@ function Resume() {
 
 
     return (
-            <div style={styles.resumeStyle} className="resume">
-                <div>
-                    <div className='profile-img'>
+        <div style={styles.resumeStyle} className="resume">
+            <div className="container">
+                <div style={styles.resumeBorder}>
+                    <div className='profile-img' >
                         <i className='fas fa-user-circle'></i>
                     </div>
                     <h1>
                         Resume
                     </h1>
                     <section>
-                        fffffffffffff
-                        fffffffffffffff
-                        ffffffffffffffff
-                        ffffffffffffffff
-                        fffffffffffffff
                     </section>
                 </div>
             </div>
+        </div>
     );
 }
 

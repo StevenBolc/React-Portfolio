@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Project from '../Project';
+import '../styles/Portfolio.css'
 
 function Portfolio() {
 
@@ -18,12 +19,12 @@ function Portfolio() {
             link: 'https://game-getter-project-2.herokuapp.com/',
             repo: '',
         },
-        // {
-        //     name: 'coding-quiz',
-        //     description: 'javascript quiz',
-        //     link: '',
-        //     repo: ''
-        // },
+        {
+            name: 'Carded',
+            description: 'collaborate with carded!',
+            link: '',
+            repo: 'https://github.com/DRCallaghan/Carded'
+        },
         {
             name: 'Horiseon',
             description: 'refactoring old html css code',
@@ -38,17 +39,39 @@ function Portfolio() {
         // },
     ]);
 
+    const styles = {
+        portfolioStyle: {
+            background: 'rgb(122, 235, 229)',
+            fontsize: '96px',
+            height: '100vh'
+        },
+        portfolioBorder: {
+            background: 'gray',
+            height: '100vh',
+            border: '1rem solid',
+            borderRadius: '5px'
+        },
+
+    };
+
     return (
-            <div>
-                <div className='flex-row'>
-                    {projects.map((project, index) => (
-                        <Project
-                            project={project}
-                            key={'project' + index}
-                        />
-                    ))}
+        <div style={styles.portfolioStyle} className="portfolio">
+            <div className="container">
+                <div style={styles.portfolioBorder}>
+                    <h1>
+                        Portfolio
+                    </h1>
+                    <div className='flex-row'>
+                        {projects.map((project, index) => (
+                            <Project
+                                project={project}
+                                key={'project' + index}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
+        </div>
     );
 };
 
